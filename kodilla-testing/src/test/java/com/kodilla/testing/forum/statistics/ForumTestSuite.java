@@ -18,12 +18,11 @@ public class ForumTestSuite {
     @Mock
     private Statistics statisticsMock;
 
-    private static List<String> usersNames = new ArrayList<>();
-    private static Forum forum;
+    private  List<String> usersNames = new ArrayList<>();
+    private Forum forum;
 
-
-    @BeforeAll
-    static void setUp() {
+    @BeforeEach
+    void setUpBeforEach(){
         usersNames.add("Marcin");
         usersNames.add("John");
         usersNames.add("Jane");
@@ -37,7 +36,6 @@ public class ForumTestSuite {
 
         forum = new Forum();
     }
-
 
 
     @Test
@@ -126,9 +124,9 @@ public class ForumTestSuite {
         double averageCommentsPerPost = forum.getAverageCommentsPerPost();
 
         //Then
-        assertEquals(0,averagePostsPerUser);
-        assertEquals(0,averageCommentsPerUser);
-        assertEquals(0,averageCommentsPerPost);
+        assertEquals(1,averagePostsPerUser);
+        assertEquals(10,averageCommentsPerUser);
+        assertEquals(10,averageCommentsPerPost);
     }
 
     @Test
