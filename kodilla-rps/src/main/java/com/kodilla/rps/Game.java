@@ -27,9 +27,6 @@ public class Game {
             System.out.println("You have won!");
         }
     }
-
-
-
     public String welcomeMessege(String gamerName){
         return "Welcome " + gamerName+" below is information how to play:\nIf you press 1 you choose rock\nIf you press 2 you choose paper\n"+
                 "If you press 3 you choose scissors\nPress x to end the game\n"+
@@ -38,10 +35,8 @@ public class Game {
     public void reset(){
         score.reset();
     }
-
-
     public void generateResult(int moveUser) {
-        int computerMove = computer.move();
+        int computerMove = computer.move(moveUser);
         switch (moveUser) {
             case 1:
                 if (computerMove == 1) {
@@ -105,6 +100,4 @@ public class Game {
                 break;
         }
     }
-
-
 }

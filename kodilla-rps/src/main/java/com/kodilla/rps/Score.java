@@ -8,7 +8,6 @@ public class Score {
     public Score(int totalNumbersOfRoundsToWin) {
         this.totalNumbersOfRoundsToWin = totalNumbersOfRoundsToWin;
     }
-
     public void incrementGamesWonByUser() {
         gamesWonByUser++;
     }
