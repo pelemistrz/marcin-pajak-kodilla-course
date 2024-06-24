@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.StringUTF16.compareTo;
+
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -76,6 +76,7 @@ public class BoardTestSuite {
         //Then
         assertEquals(2,longTasks);
     }
+
 
 
 
