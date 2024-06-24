@@ -5,8 +5,10 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.time.temporal.ChronoUnit;
+import java.util.stream.Collectors;
 
-
+import static java.time.temporal.ChronoUnit.DAYS;
 import static java.util.stream.Collectors.toList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -76,10 +78,23 @@ public class BoardTestSuite {
         //Then
         assertEquals(2,longTasks);
     }
+    @Test
+    void testAddTaskListAverageWorkingOnTask(){
+       //Given
+        Board project = prepareTestData();
 
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+        double averageWorkDay = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(Task::getCreated)
+                .map(t -> DAYS.between(t, LocalDate.now()))
+                .collect(Collectors.averagingInt(num -> num.intValue()));
 
-
-
+        assertEquals(10.0,averageWorkDay);
+    }
 
     private Board prepareTestData() {
         //users
