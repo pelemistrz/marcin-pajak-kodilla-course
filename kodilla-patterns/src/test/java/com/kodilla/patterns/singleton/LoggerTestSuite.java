@@ -10,7 +10,6 @@ public class LoggerTestSuite {
     void testLastLog(){
         //given
         Logger logger = Logger.LOG;
-        logger.setLog("Hello World");
         Logger logger2 = Logger.LOG;
         logger2.setLog("Marcin Pajak, last update: 01.10.2022");
         logger.setLog("Stanisla Pyta, latest update: 01.10.2022");
