@@ -10,9 +10,9 @@ class CustomerTestSuite {
     @Test
     void testDefaultInvestingStrategies() {
         //Given
-        Customer steven = new IndividualCustomer("Steven Links");
-        Customer john = new IndividualYoungCustomer("John Hemerald");
-        Customer kodilla = new CorporateCustomer("Kodilla");
+        User steven = new IndividualCustomer("Steven Links");
+        User john = new IndividualYoungCustomer("John Hemerald");
+        User kodilla = new CorporateCustomer("Kodilla");
 
         //When
         String stevenShouldBuy = steven.predict();
@@ -31,7 +31,7 @@ class CustomerTestSuite {
     @Test
     void testIndividualInvestingStrategy() {
         //Given
-        Customer steven = new IndividualCustomer("Steven Links");
+        User steven = new IndividualCustomer("Steven Links");
 
         //When
         String stevenShouldBuy = steven.predict();

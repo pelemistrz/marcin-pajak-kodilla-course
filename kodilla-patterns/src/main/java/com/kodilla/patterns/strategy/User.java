@@ -2,12 +2,13 @@ package com.kodilla.patterns.strategy;
 
 import com.kodilla.patterns.strategy.predictors.BuyPredictor;
 
-public class Customer {
+public sealed class User permits
+    CorporateCustomer,IndividualCustomer,IndividualYoungCustomer{
 
     private final String name;
     protected BuyPredictor buyPredictor;
 
-    public Customer(String name) {
+    public User(String name) {
         this.name = name;
     }
 

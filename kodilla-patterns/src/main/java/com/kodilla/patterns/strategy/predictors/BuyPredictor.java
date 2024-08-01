@@ -1,5 +1,7 @@
 package com.kodilla.patterns.strategy.predictors;
 
-public interface BuyPredictor {
+public sealed interface BuyPredictor
+    permits AggresivePredictor,ConservativePredictor,BalancedPredictor
+{
     String predictWhatToBuy();
 }
