@@ -35,7 +35,7 @@ public class LibraryTestSuite {
 
     @Test
     void testContext(){
-        ApplicationContext context = new AnnotationConfigApplicationContext("com.kodilla.spring");
+        ApplicationContext context = new AnnotationConfigApplicationContext(LibraryConfig.class);
 
         //when & then
         System.out.println("Bean list ==================");

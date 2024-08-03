@@ -8,7 +8,12 @@ import org.springframework.context.annotation.Configuration;
 public class BoardConfig {
 
     @Bean
-    public Board board() {
+    public TaskList taskList() {
+        return new TaskList();
+    }
 
+    @Bean
+    public Board board() {
+        return new Board(taskList(),taskList(),taskList());
     }
 }
