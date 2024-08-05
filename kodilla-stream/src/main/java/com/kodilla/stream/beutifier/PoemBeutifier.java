@@ -6,3 +6,19 @@ public class PoemBeutifier {
         System.out.println("Beutify text: " + beutifyText);
     }
 }
+package com.kodilla;
+
+import com.kodilla.good.patterns.challenges.MovieStore;
+
+public class Main {
+    public static void main(String[] args) {
+        MovieStore movieStore = new MovieStore();
+        String nameOfMovies = movieStore.getMovies().entrySet()
+                .stream()
+                .map(entry -> entry.getValue())
+                .flatMap(movies -> movies.stream())
+                .forEach(System.out::println);
+
+
+    }
+}
