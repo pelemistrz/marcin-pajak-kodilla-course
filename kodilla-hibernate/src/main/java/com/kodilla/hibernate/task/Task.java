@@ -8,7 +8,7 @@ import java.util.*;
 @Entity
 @Table(name="TASKS")
 public class Task {
-    private int id;
+    private int id ;
     private String description;
     private Date created;
     private int duration;
