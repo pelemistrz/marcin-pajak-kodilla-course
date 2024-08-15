@@ -8,18 +8,20 @@ import java.util.LinkedList;
 import java.util.List;
 
 @Entity
-@Table(name="COMPANIES")
+@Table(name = "COMPANIES")
 public class Company {
     private int id;
     private String name;
     List<Employee> employees = new ArrayList<>();
 
-    public Company(){}
+    public Company() {
+    }
 
     public Company(String name) {
         this.name = name;
     }
-    @ManyToMany(cascade=CascadeType.ALL, mappedBy = "companies")
+
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
 
     public List<Employee> getEmployees() {
         return employees;
@@ -32,16 +34,11 @@ public class Company {
     @Id
     @GeneratedValue
     @NotNull
-    @Column(name="COMPANY_ID",unique = true)
+    @Column(name = "COMPANY_ID", unique = true)
     public int getId() {
         return id;
     }
 
-
-
-    public void setId(int id) {
-        this.id = id;
-    }
     @Column(name = "COMPANY_NAME", unique = true)
     public String getName() {
         return name;
@@ -49,5 +46,9 @@ public class Company {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

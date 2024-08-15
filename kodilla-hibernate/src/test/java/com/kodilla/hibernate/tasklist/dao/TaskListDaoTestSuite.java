@@ -65,5 +65,6 @@ public class TaskListDaoTestSuite {
         int id = taskList.getId();
         //then
         assertNotEquals(0,id);
+
     }
 }

@@ -6,6 +6,27 @@ import jakarta.validation.constraints.NotNull;
 
 import java.util.*;
 
+
+@NamedQueries({
+        @NamedQuery(
+                name = "Task.retrieveLongTasks",
+                query = "FROM Task WHERE duration > 10"
+        ),
+        @NamedQuery(
+                name = "Task.retrieveShortTasks",
+                query = "from Task where duration <= 10"
+        ),
+        @NamedQuery(
+                name = "Task.retrieveTasksWithDurationLongerThan",
+                query = "from Task where duration > :DURATION"
+        )
+})
+@NamedNativeQuery(
+        name = "Task.retrieveTasksWithEnoughTime",
+        query = "SELECT * FROM TASKS" +
+                " WHERE DATEDIFF(DATE_ADD(CREATED, INTERVAL DURATION DAY), NOW()) > 5",
+        resultClass = Task.class
+)
 @Entity
 @Table(name="TASKS")
 public class Task {
@@ -27,6 +48,8 @@ public class Task {
     public TaskList getTaskList() {
         return taskList;
     }
+
+
 
     public void setTaskList(TaskList taskList) {
         this.taskList = taskList;
