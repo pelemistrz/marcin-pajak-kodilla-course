@@ -7,6 +7,13 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+
+
+@NamedNativeQuery(
+        name = "Company.retrieveCompaniesWhoStartsWith",
+        query = "Select * from companies where LEFT(COMPANY_NAME,3) = :THREEFIRSTLETTERS",
+        resultClass = Company.class
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
