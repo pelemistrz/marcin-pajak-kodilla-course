@@ -3,6 +3,7 @@ package com.kodilla.hibernate.task;
 import com.kodilla.hibernate.tasklist.TaskList;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import org.hibernate.annotations.GenericGenerator;
 
 import java.util.*;
 
@@ -55,7 +56,7 @@ public class Task {
         this.taskList = taskList;
     }
 
-    @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @OneToOne(cascade = CascadeType.ALL ,fetch = FetchType.EAGER)
     @JoinColumn(name="TASKS_FINANCIALS_ID")
     public TaskFinancialDetails getTaskFinancialDetails() {
         return taskFinancialDetails;
@@ -65,8 +66,17 @@ public class Task {
         this.taskFinancialDetails = taskFinancialDetails;
     }
 
+    @GenericGenerator(
+            name = "wikiSequenceGenerator",
+            strategy = "org.hibernate.id.enhanced.SequenceStyleGenerator",
+            parameters = {
+                    @org.hibernate.annotations.Parameter(name = "sequence_name", value = "WIKI_SEQUENCE"),
+                    @org.hibernate.annotations.Parameter(name = "initial_value", value = "1000"),
+                    @org.hibernate.annotations.Parameter(name = "increment_size", value = "1")
+            }
+    )
     @Id
-    @GeneratedValue
+    @GeneratedValue(generator = "wikiSequenceGenerator")
     @NotNull
     @Column(name="ID", unique = true)
     public int getId() {

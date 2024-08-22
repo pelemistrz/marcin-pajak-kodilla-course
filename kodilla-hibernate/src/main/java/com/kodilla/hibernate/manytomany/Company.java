@@ -19,7 +19,7 @@ import java.util.List;
 public class Company {
     private int id;
     private String name;
-    List<Employee> employees = new ArrayList<>();
+    List<com.kodilla.hibernate.manytomany.Employee> employees = new ArrayList<>();
 
     public Company() {
     }
@@ -29,8 +29,7 @@ public class Company {
     }
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
-
-    public List<Employee> getEmployees() {
+    public List<com.kodilla.hibernate.manytomany.Employee> getEmployees() {
         return employees;
     }
 

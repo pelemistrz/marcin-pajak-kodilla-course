@@ -34,7 +34,7 @@ public class TaskDaoTestSuite {
         Optional<Task> readTask = taskDao.findById(id);
         assertTrue(readTask.isPresent());
         //clean up
-        taskDao.deleteById(id);
+        taskDao.deleteAll();
     }
     @Test
     void testTaskDaoFindByDuration(){
