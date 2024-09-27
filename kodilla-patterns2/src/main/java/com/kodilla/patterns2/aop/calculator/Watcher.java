@@ -1,6 +1,8 @@
 package com.kodilla.patterns2.aop.calculator;
 
+import com.kodilla.patterns2.facade.api.OrderDto;
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -34,6 +36,11 @@ public class Watcher {
             throw throwable;
         }
         return result;
+    }
+    @After("execution(* com.kodilla.patterns2.facade.api.OrderFacade.processOrder(..))"+
+    "&& args(order,userId)")
+    public void logEvent(OrderDto order, Long userId) {
+        LOGGER.info("Logging into logs order process with args: "+order+" , "+userId);
     }
 
 }
