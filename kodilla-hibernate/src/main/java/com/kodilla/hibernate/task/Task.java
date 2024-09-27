@@ -36,6 +36,7 @@ public class Task {
     private Date created;
     private int duration;
     private TaskFinancialDetails taskFinancialDetails;
+
     private TaskList taskList;
 
 
@@ -49,8 +50,6 @@ public class Task {
     public TaskList getTaskList() {
         return taskList;
     }
-
-
 
     public void setTaskList(TaskList taskList) {
         this.taskList = taskList;

@@ -16,6 +16,7 @@ import java.util.List;
 )
 @Entity
 @Table(name = "COMPANIES")
+
 public class Company {
     private int id;
     private String name;
@@ -27,6 +28,7 @@ public class Company {
     public Company(String name) {
         this.name = name;
     }
+
 
     @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
     public List<com.kodilla.hibernate.manytomany.Employee> getEmployees() {

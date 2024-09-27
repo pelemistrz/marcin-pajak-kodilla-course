@@ -19,7 +19,7 @@ public class Employee {
     private int id;
     private String firstName;
     private String lastName;
-    private List<Company> companies = new ArrayList<>();
+    private List<com.kodilla.hibernate.manytomany.Company> companies = new ArrayList<>();
 
 
     public Employee(){};
