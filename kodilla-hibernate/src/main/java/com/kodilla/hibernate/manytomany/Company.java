@@ -8,7 +8,11 @@ import java.util.LinkedList;
 import java.util.List;
 
 
-
+@NamedNativeQuery(
+        name="Company.getCompanyByString",
+        query = "SELECT * from companies WHERE COMPANY_NAME LIKE CONCAT('%',:COMPANYNAME,'%')",
+        resultClass = Company.class
+)
 @NamedNativeQuery(
         name = "Company.retrieveCompaniesWhoStartsWith",
         query = "Select * from companies where LEFT(COMPANY_NAME,3) = :THREEFIRSTLETTERS",
@@ -16,7 +20,6 @@ import java.util.List;
 )
 @Entity
 @Table(name = "COMPANIES")
-
 public class Company {
     private int id;
     private String name;

@@ -7,8 +7,11 @@ import jakarta.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
+@NamedNativeQuery(
+        name="Employee.getEmployeeByString",
+        query = "SELECT * from employees WHERE FIRSTNAME LIKE CONCAT('%',:STR,'%') OR LASTNAME LIKE CONCAT('%',:STR,'%') ",
+        resultClass = Employee.class
+)
 @NamedQuery(
         name = "Employee.retrieveEmployeesWithGivenLastName",
         query = "from Employee where lastName = :LASTNAME"
