@@ -15,6 +15,7 @@ public class ForumUser implements Observer{
         updateCount++;
     }
 
+
     public String getUsername() {
         return username;
     }
